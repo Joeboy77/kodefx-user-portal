@@ -1,70 +1,110 @@
-# Getting Started with Create React App
+# KodeFX User Portal
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A secure React application for KodeFX users that provides access to the privacy policy and account deletion functionality. All pages require authentication.
 
-## Available Scripts
+## Project Overview
 
-In the project directory, you can run:
+The KodeFX User Portal is designed for forex traders who use the KodeFX platform to connect with forex experts. This portal provides:
 
-### `yarn start`
+1. A secure authentication system
+2. Access to the privacy policy (requires authentication)
+3. A user account deletion feature (requires authentication)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Authentication System
+- Login page with email and password validation
+- Protected routes using React Router
+- Session management with localStorage
+- Automatic redirection to login for unauthenticated users
 
-### `yarn test`
+### Privacy Policy
+- Comprehensive privacy policy specifically tailored for a forex trading platform
+- Responsive design for all device sizes
+- Clear organization with sections and subsections
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Account Deletion
+- Two-step confirmation process to prevent accidental deletions
+- Clear warnings about the consequences of account deletion
+- Success feedback after deletion
+- Automatic logout and redirection after account deletion
 
-### `yarn build`
+## Project Structure
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+kodefx-user-portal/
+├── public/
+├── src/
+│   ├── components/
+│   │   ├── DeleteAccount.js
+│   │   ├── DeleteAccount.css
+│   │   ├── Login.js
+│   │   ├── Login.css
+│   │   ├── Navigation.js
+│   │   ├── Navigation.css
+│   │   ├── PrivacyPolicy.js
+│   │   ├── PrivacyPolicy.css
+│   │   └── PrivateRoute.js
+│   ├── App.js
+│   ├── App.css
+│   ├── index.js
+│   └── index.css
+├── package.json
+└── README.md
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Getting Started
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Prerequisites
+- Node.js (v14 or higher)
+- Yarn package manager
 
-### `yarn eject`
+### Installation
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Clone the repository:
+```
+git clone <repository-url>
+cd kodefx-user-portal
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. Install dependencies:
+```
+yarn install
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. Start the development server:
+```
+yarn start
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+4. Build for production:
+```
+yarn build
+```
 
-## Learn More
+## API Integration
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The application integrates with the following API endpoints:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **Login API**:
+  - URL: `https://kodefx-c6d6097c6d0c.herokuapp.com/api/v1/users/login`
+  - Method: POST
+  - Payload: `{ email, password }`
+  - Response: Contains user ID needed for authentication
 
-### Code Splitting
+- **Delete Account API**:
+  - URL: `https://kodefx-c6d6097c6d0c.herokuapp.com/api/v1/users/:userId`
+  - Method: DELETE
+  - Authentication: User ID from login stored in localStorage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Demo Credentials
 
-### Analyzing the Bundle Size
+For testing purposes, you can use the following credentials:
+- Email: demo@kodefx.com
+- Password: password123
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Notes
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- User authentication is managed using localStorage for simplicity
+- In a production environment, consider implementing more secure authentication methods like JWT with HTTP-only cookies
+- The API endpoints in this demo are placeholders and should be replaced with actual endpoints in a production environment

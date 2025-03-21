@@ -1,0 +1,31 @@
+/* src/components/Login.css */
+.auth-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .auth-subtitle {
+    color: #666;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+  
+  .demo-info {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+  }
+  
+  .demo-info h3 {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .demo-info p {
+    margin: 5px 0;
+    color: #666;
+  }
