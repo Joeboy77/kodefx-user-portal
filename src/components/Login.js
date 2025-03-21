@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import axios from 'axios';
 import './Login.css';
 
@@ -117,10 +117,8 @@ const Login = () => {
           </button>
         </form>
         
-        <div className="demo-info">
-          <h3>Demo Credentials</h3>
-          <p><strong>Email:</strong> demo@kodefx.com</p>
-          <p><strong>Password:</strong> password123</p>
+        <div className="privacy-link">
+          <Link to="/privacy">View our Privacy Policy</Link>
         </div>
       </div>
     </div>

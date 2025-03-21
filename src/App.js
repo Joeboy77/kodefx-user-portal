@@ -29,6 +29,7 @@ function App() {
           
           {/* Redirect all other routes to login */}
           <Route path="*" element={<Navigate to="/login" replace />} />
+          <Route path='/privacy' element={<PrivacyPolicy />}/>
         </Routes>
       </div>
     </Router>
